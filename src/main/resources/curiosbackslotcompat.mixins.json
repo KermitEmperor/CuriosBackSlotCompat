@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kermitemperor.curiosbackslotcompat.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "CuriosBackSlotCompat.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "BackWeaponRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
