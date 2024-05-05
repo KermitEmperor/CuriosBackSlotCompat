@@ -20,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 @OnlyIn(Dist.CLIENT)
@@ -46,7 +47,15 @@ public abstract class BackWeaponRendererMixin {
                     matrixStack.translate(-0.01, 0.0, 0.0);
                 }
             }
+            case "tetra:modular_greatsword" -> {
+                matrixStack.scale(0.65f,0.65f,0.65f);
+                matrixStack.translate(0.25,-0.575,0);
+            }
+            //TODO Create and MrCrayfish gun
+        }
+        String[] create = {"wrench", "potato_cannon", "extendo_grip", "handheld_worldshaper"};
+        if (Arrays.stream(create).anyMatch(x -> ("create:" + x).equals(itemName))) {
+            matrixStack.mulPose(Vector3f.ZN.rotationDegrees(45.0F));
         }
     }
-
 }

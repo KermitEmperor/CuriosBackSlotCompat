@@ -4,6 +4,8 @@ This mod adds a small compability with other mods for [Back Weapon Slot](https:/
 
 ### Currently supported mods
 - [Tinker's Construct](https://www.curseforge.com/minecraft/mc-mods/tinkers-construct)
+- [Secrets of Forging: Revelations - A Tetra Addon](https://www.curseforge.com/minecraft/mc-mods/secrets-of-forging-revelations-a-tetra-addon)
+- [Tetra: Enlarged](https://www.curseforge.com/minecraft/mc-mods/tetra-enlarged)
 
 
 ### Tip
