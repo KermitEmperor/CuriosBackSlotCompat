@@ -51,11 +51,29 @@ public abstract class BackWeaponRendererMixin {
                 matrixStack.scale(0.65f,0.65f,0.65f);
                 matrixStack.translate(0.25,-0.575,0);
             }
-            //TODO Create and MrCrayfish gun
-        }
-        String[] create = {"wrench", "potato_cannon", "extendo_grip", "handheld_worldshaper"};
-        if (Arrays.stream(create).anyMatch(x -> ("create:" + x).equals(itemName))) {
-            matrixStack.mulPose(Vector3f.ZN.rotationDegrees(45.0F));
+            case "create:wrench" -> {
+                matrixStack.mulPose(Vector3f.ZN.rotationDegrees(45.0F));
+                matrixStack.mulPose(Vector3f.YP.rotationDegrees(15f));
+                matrixStack.translate(0,0,0.05);
+            }
+            case "create:potato_cannon" -> {
+                matrixStack.mulPose(Vector3f.ZN.rotationDegrees(45.0F));
+                matrixStack.translate(0,0,0.12);
+            }
+            case "create:extendo_grip" -> {
+                matrixStack.mulPose(Vector3f.ZN.rotationDegrees(45.0F));
+                matrixStack.translate(0,0,0.10);
+            }
+            case "create:handheld_worldshaper" -> {
+                matrixStack.mulPose(Vector3f.ZN.rotationDegrees(45.0F));
+                matrixStack.translate(0,0,0.15);
+            }
+            case "create:wand_of_symmetry" -> {
+                matrixStack.mulPose(Vector3f.ZN.rotationDegrees(45.0F));
+                matrixStack.scale(0.5f,0.5f,0.5f);
+                matrixStack.translate(0,0,0.05);
+            }
+            //TODO Create and its addons and MrCrayfish gun
         }
     }
 }
