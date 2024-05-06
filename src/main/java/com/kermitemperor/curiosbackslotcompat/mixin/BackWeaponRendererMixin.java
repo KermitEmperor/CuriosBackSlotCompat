@@ -27,7 +27,7 @@ import static com.kermitemperor.curiosbackslotcompat.CuriosBackSlotCompat.LOGGER
 @OnlyIn(Dist.CLIENT)
 @Mixin(BackWeaponRenderer.class)
 public abstract class BackWeaponRendererMixin {
-    @Shadow
+    @Shadow(remap = false)
     protected abstract boolean hasArmor(AbstractClientPlayer livingEntity);
 
     @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;FFFFFF)V",
