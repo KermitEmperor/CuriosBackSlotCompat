@@ -20,8 +20,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import java.util.Arrays;
 import java.util.Objects;
+
+import static com.kermitemperor.curiosbackslotcompat.CuriosBackSlotCompat.LOGGER;
 
 @OnlyIn(Dist.CLIENT)
 @Mixin(BackWeaponRenderer.class)
@@ -35,9 +36,7 @@ public abstract class BackWeaponRendererMixin {
     public void beforeNormalItemRender(PoseStack matrixStack, MultiBufferSource bufferSource, int packedLight, AbstractClientPlayer livingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo ci, Minecraft mc, ItemStack stack, Item item, PlayerModel playerModel, ItemRenderer itemRenderer, BakedModel model) {
         String itemName = Objects.requireNonNull(item.getRegistryName()).toString();
         switch (itemName) {
-            case "tconstruct:cleaver" -> {
-                matrixStack.translate(0.125, -0.25, 0);
-            }
+            case "tconstruct:cleaver" -> matrixStack.translate(0.125, -0.25, 0);
             case "tconstruct:plate_shield" -> {
                 matrixStack.mulPose(Vector3f.ZN.rotationDegrees(90.0F));
                 //matrixStack.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
@@ -53,7 +52,7 @@ public abstract class BackWeaponRendererMixin {
             }
             case "create:wrench" -> {
                 matrixStack.mulPose(Vector3f.ZN.rotationDegrees(45.0F));
-                matrixStack.mulPose(Vector3f.YP.rotationDegrees(15f));
+                matrixStack.mulPose(Vector3f.YP.rotationDegrees(15.0f));
                 matrixStack.translate(0,0,0.05);
             }
             case "create:potato_cannon" -> {
@@ -73,7 +72,23 @@ public abstract class BackWeaponRendererMixin {
                 matrixStack.scale(0.5f,0.5f,0.5f);
                 matrixStack.translate(0,0,0.05);
             }
-            //TODO Create and its addons and MrCrayfish gun
+            //TODO:
+            //  Create Addons
+            //  MrCrayfish gun
+        }
+    }
+
+    @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;FFFFFF)V",
+            at = @At(value = "INVOKE", ordinal = 2,target = "Lnet/minecraft/client/renderer/entity/ItemRenderer;renderStatic(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/client/renderer/block/model/ItemTransforms$TransformType;IILcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V"),
+            locals = LocalCapture.CAPTURE_FAILSOFT)
+    public void beforeNormalBlockItemRender(PoseStack matrixStack, MultiBufferSource bufferSource, int packedLight, AbstractClientPlayer livingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo ci, Minecraft mc, ItemStack stack, Item item, PlayerModel playerModel, ItemRenderer itemRenderer, BakedModel model) {
+        String itemName = Objects.requireNonNull(item.getRegistryName()).toString();
+        switch (itemName) {
+            case "farmersdelight:skillet" -> {
+                matrixStack.mulPose(Vector3f.ZP.rotationDegrees(45.0F));
+                matrixStack.translate(-0.1,-0.1,0.25);
+                matrixStack.scale(0.8f,0.8f,0.8f);
+            }
         }
     }
 }
