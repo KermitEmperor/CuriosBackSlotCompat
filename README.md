@@ -8,6 +8,7 @@ This mod adds a small compability with other mods for [Back Weapon Slot](https:/
 - [Tetra: Enlarged](https://www.curseforge.com/minecraft/mc-mods/tetra-enlarged)
 - [Create](https://www.curseforge.com/minecraft/mc-mods/create)
 - [Farmer's Delight](https://www.curseforge.com/minecraft/mc-mods/farmers-delight)
+- [Create : Misc & Things](https://www.curseforge.com/minecraft/mc-mods/create-misc-and-things)
 
 ### Tip
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B6TMVJ8)

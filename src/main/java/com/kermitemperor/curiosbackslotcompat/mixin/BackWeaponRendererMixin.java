@@ -72,6 +72,18 @@ public abstract class BackWeaponRendererMixin {
                 matrixStack.scale(0.5f,0.5f,0.5f);
                 matrixStack.translate(0,0,0.05);
             }
+            case "create_things_and_misc:blaze_balloon_fire",
+                    "create_things_and_misc:spout_gun",
+                    "create_things_and_misc:spout_gun_water",
+                    "create_things_and_misc:spout_gun_lava",
+                    "create_things_and_misc:spout_gun_chocolate",
+                    "create_things_and_misc:spout_gun_honey",
+                    "create_things_and_misc:spout_gun_slime"
+                    -> {
+                matrixStack.scale(1.2f,1.2f,1.2f);
+                matrixStack.translate(0,0,0.10);
+                matrixStack.mulPose(Vector3f.ZN.rotationDegrees(45.0F));
+            }
             //TODO:
             //  Create Addons
             //  MrCrayfish gun
