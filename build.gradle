@@ -179,7 +179,7 @@ dependencies {
     implementation fg.deobf("curse.maven:back-weapon-slot-959303:5043235") {transitive = false}
 
     runtimeOnly fg.deobf("curse.maven:create-328085:4835188")
-    runtimeOnly fg.deobf("curse.maven:create-misc-and-things-652202:4735324")
+    runtimeOnly fg.deobf("curse.maven:create-stuff-additions-466792:4703282")
 
 
     // For more info:
